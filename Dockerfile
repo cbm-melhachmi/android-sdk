@@ -4,6 +4,7 @@ ENV SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-3859397.zi
     ANDROID_HOME="/usr/local/android-sdk" \
     ANDROID_VERSION=28 \
     ANDROID_BUILD_TOOLS_VERSION=28.0.3
+ENV ANDROID_NDK_HOME /opt/android-ndk    
 # Download Android SDK
 RUN mkdir "$ANDROID_HOME" .android \
     && cd "$ANDROID_HOME" \
