@@ -14,23 +14,9 @@ ENV PATH $PATH:$ANDROID_HOME/platform-tools
 ENV TERM dumb
 ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 
-ENV ANDROID_NDK_HOME /ndk-bundle
-ENV ANDROID_NDK_VERSION r21
-ENV NDK_URL="https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip"
-
-# Download Android NDK
-RUN mkdir "$ANDROID_NDK_HOME" \
-    && cd "$ANDROID_NDK_HOME" \
-    && curl -o ndk.zip $NDK_URL \
-    && unzip ndk.zip \
-    && rm ndk.zip
-
-# add to PATH
-ENV PATH ${PATH}:${ANDROID_NDK_HOME}
-
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD [ "/bin/bash" ]
 
-RUN ./entrypoint.sh
+RUN entrypoint.sh
