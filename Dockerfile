@@ -16,4 +16,7 @@ ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 
 COPY entrypoint.sh /entrypoint.sh
 
+ENTRYPOINT ["/entrypoint.sh"]
+CMD [ "/bin/bash" ]
+
 RUN entrypoint.sh
