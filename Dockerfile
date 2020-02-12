@@ -19,4 +19,5 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD [ "/bin/bash" ]
 
-RUN entrypoint.sh
+RUN ./entrypoint.sh
+
