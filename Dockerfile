@@ -12,7 +12,8 @@ ENV ANDROID_HOME /android-sdk
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
 ENV TERM dumb
-ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
+ENV JVM_OPTS: "-Xmx2048m"
+ENV GRADLE_OPTS: "-Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false -XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 
 COPY entrypoint.sh /entrypoint.sh
 
